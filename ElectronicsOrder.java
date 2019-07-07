@@ -28,7 +28,7 @@ public class ElectronicsOrder extends Order {
     }
 
     @Override
-    public void calculatePrice() {
+    public double calculatePrice() {
         if (getCustomerOwned() != null) {
             if (getCustomerOwned().getCity() != null && getCustomerOwned().getCity() != "Киев" || getCustomerOwned().getCity() != "Одесса") {
                 setTotalPrice(getBasePrice() * 1.15);
@@ -39,6 +39,7 @@ public class ElectronicsOrder extends Order {
                 setTotalPrice(getBasePrice() * 0.95);
             }
         }
+        return getTotalPrice();
     }
 
 }
