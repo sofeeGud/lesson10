@@ -16,7 +16,7 @@ public class ElectronicsOrder extends Order {
             if (getShipToCity() == "Киев" || getShipToCity() == "Одесса" || getShipToCity() == "Днепр" || getShipToCity() == "Харьков") {
                 if (getShipFromCity() == "Киев" || getShipFromCity() == "Одесса" || getShipFromCity() == "Днепр" || getShipFromCity() == "Харьков") {
                     if (getShipFromCity() != getShipToCity()) {
-                        if (getTotalPrice() > 100) {
+                        if (getTotalPrice() >= 100) {
                             if (getCustomerOwned() != null) {
                                 if (getCustomerOwned().getGender() == "Женский") {
                                     setDateConfirmed(new Date());
@@ -41,7 +41,7 @@ public class ElectronicsOrder extends Order {
             } else {
                 sumShip = getBasePrice() * 1.15;
             }
-            if (sumShip > 1000) {
+            if (sumShip >= 1000) {
                 setTotalPrice(sumShip * 0.95);
             }
         }
