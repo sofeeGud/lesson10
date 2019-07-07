@@ -2,7 +2,7 @@ package lesson10.homewort10;
 
 import java.util.Date;
 
-public abstract class Customer {
+public class Customer {
 
     private String name;
     private String city;
