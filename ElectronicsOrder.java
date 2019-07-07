@@ -12,7 +12,6 @@ public class ElectronicsOrder extends Order {
 
     @Override
     public void validateOrder() {
-        calculatePrice();
         if (getCustomerOwned().getCity() != null && getShipFromCity() == "Киев" || getShipToCity() == "Одесса" || getShipToCity() == "Днепр" || getShipToCity() == "Харьков") {
             if (getCustomerOwned().getCity() != null && getCustomerOwned().getCity() == "Киев" || getCustomerOwned().getCity() == "Одесса" || getCustomerOwned().getCity() == "Днепр" || getCustomerOwned().getCity() == "Харьков") {
                 if (getTotalPrice() > 100) {

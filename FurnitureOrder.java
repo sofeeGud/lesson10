@@ -12,7 +12,6 @@ public class FurnitureOrder extends Order {
 
     @Override
     public void validateOrder() {
-        calculatePrice();
         if (getCustomerOwned() != null) {
             if (getShipFromCity() == "Киев" || getShipFromCity() == "Львов") {
                 if (getTotalPrice() < 500) {
