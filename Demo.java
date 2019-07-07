@@ -4,38 +4,14 @@ import java.util.Date;
 
 public class Demo {
     public static void main(String[] args) {
-        Order orderOne = new Order() {
-            @Override
-            void validateOrder() {
+        Order orderOne = new Order(new Date(), new Date(), 1233.5);
+        Order orderTwo = new Order(new Date(), new Date(), 55555.98);
 
-            }
-
-            @Override
-            void calculatePrice() {
-            }
-
-            @Override
-            void confirmShipping() {
-                super.confirmShipping();
-            }
-        };
-
-        Order orderTwo = new Order() {
-            @Override
-            void validateOrder() {
-
-            }
-
-            @Override
-            void calculatePrice() {
-
-            }
-
-            @Override
-            void confirmShipping() {
-                super.confirmShipping();
-            }
-        };
-
+        orderOne.validateOrder();
+        orderOne.calculatePrice();
+        orderOne.confirmShipping();
+        orderTwo.validateOrder();
+        orderTwo.calculatePrice();
+        orderTwo.confirmShipping();
     }
 }
