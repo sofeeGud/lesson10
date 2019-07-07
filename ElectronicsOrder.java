@@ -12,12 +12,16 @@ public class ElectronicsOrder extends Order {
 
     @Override
     public void validateOrder() {
-        if (getCustomerOwned().getCity() != null && getShipFromCity() == "Киев" || getShipToCity() == "Одесса" || getShipToCity() == "Днепр" || getShipToCity() == "Харьков") {
-            if (getCustomerOwned().getCity() != null && getCustomerOwned().getCity() == "Киев" || getCustomerOwned().getCity() == "Одесса" || getCustomerOwned().getCity() == "Днепр" || getCustomerOwned().getCity() == "Харьков") {
-                if (getTotalPrice() > 100) {
-                    if (getCustomerOwned() != null) {
-                        if (getCustomerOwned().getGender() == "Женский") {
-                            setDateConfirmed(new Date());
+        if (getCustomerOwned() != null) {
+            if (getShipToCity() == "Киев" || getShipToCity() == "Одесса" || getShipToCity() == "Днепр" || getShipToCity() == "Харьков") {
+                if (getShipFromCity() == "Киев" || getShipFromCity() == "Одесса" || getShipFromCity() == "Днепр" || getShipFromCity() == "Харьков") {
+                    if (getShipFromCity() != getShipToCity()) {
+                        if (getTotalPrice() > 100) {
+                            if (getCustomerOwned() != null) {
+                                if (getCustomerOwned().getGender() == "Женский") {
+                                    setDateConfirmed(new Date());
+                                }
+                            }
                         }
                     }
                 }
@@ -29,13 +33,13 @@ public class ElectronicsOrder extends Order {
 
     @Override
     public double calculatePrice() {
-        double sumShip;
+        double sumShip = getTotalPrice();
 
         if (getCustomerOwned() != null) {
-            if (getCustomerOwned().getCity() != null && getCustomerOwned().getCity() != "Киев" || getCustomerOwned().getCity() != "Одесса") {
-               sumShip = getBasePrice() * 1.15;
-            } else {
+            if (getCustomerOwned().getCity() == "Киев" || getCustomerOwned().getCity() == "Одесса") {
                 sumShip = getBasePrice() * 1.10;
+            } else {
+                sumShip = getBasePrice() * 1.15;
             }
             if (sumShip > 1000) {
                 setTotalPrice(sumShip * 0.95);
