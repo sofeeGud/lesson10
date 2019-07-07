@@ -8,7 +8,7 @@ public abstract class Customer {
     private String city;
     private String gender;
 
-    public Customer(Date dateConfirmed, Date dateShipped, double totalPrice, String name, String city, String gender) {
+    public Customer(String name, String city, String gender) {
         this.name = name;
         this.city = city;
         this.gender = gender;

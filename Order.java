@@ -2,7 +2,7 @@ package lesson10.homewort10;
 
 import java.util.Date;
 
-public class Order {
+public abstract class Order {
     private String itemName;
     private Date dateCreated;
     private Date dateConfirmed;
@@ -19,12 +19,10 @@ public class Order {
         this.totalPrice = totalPrice;
     }
 
-    public  void validateOrder() {
-    }
+    abstract void validateOrder();
 
 
-    public void calculatePrice() {
-    }
+    abstract void calculatePrice();
 
 
     public void confirmShipping() {
