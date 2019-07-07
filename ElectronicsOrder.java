@@ -12,11 +12,13 @@ public class ElectronicsOrder extends Order {
 
     @Override
     public void validateOrder() {
-        if (getShipFromCity() == "Киев" || getShipToCity() == "Одесса" || getShipToCity() == "Днепр" || getShipToCity() == "Харьков") {
-            if (getTotalPrice() > 100) {
-                if (getCustomerOwned() != null) {
-                    if (getCustomerOwned().getGender() == "Женский") {
-                        setDateConfirmed(new Date());
+        if (getCustomerOwned().getCity() != null && getShipFromCity() == "Киев" || getShipToCity() == "Одесса" || getShipToCity() == "Днепр" || getShipToCity() == "Харьков") {
+            if (getCustomerOwned().getCity() != null && getCustomerOwned().getCity() == "Киев" || getCustomerOwned().getCity() == "Одесса" || getCustomerOwned().getCity() == "Днепр" || getCustomerOwned().getCity() == "Харьков") {
+                if (getTotalPrice() > 100) {
+                    if (getCustomerOwned() != null) {
+                        if (getCustomerOwned().getGender() == "Женский") {
+                            setDateConfirmed(new Date());
+                        }
                     }
                 }
 
@@ -28,7 +30,7 @@ public class ElectronicsOrder extends Order {
     @Override
     public void calculatePrice() {
         if (getCustomerOwned() != null) {
-            if (getCustomerOwned().getCity() != "Киев" || getCustomerOwned().getCity() != "Одесса") {
+            if (getCustomerOwned().getCity() != null && getCustomerOwned().getCity() != "Киев" || getCustomerOwned().getCity() != "Одесса") {
                 setTotalPrice(getBasePrice() * 1.15);
             } else {
                 setTotalPrice(getBasePrice() * 1.10);
