@@ -32,11 +32,11 @@ public class ElectronicsOrder extends Order {
     }
 
     @Override
-    public int calculatePrice() {
+    public void calculatePrice() {
         double sumShip = getTotalPrice();
 
         if (getCustomerOwned() != null) {
-            if (getCustomerOwned().getCity() == "Киев" || getCustomerOwned().getCity() == "Одесса") {
+            if (getShipFromCity() == "Киев" || getShipFromCity() == "Одесса") {
                 sumShip = getBasePrice() * 1.10;
             } else {
                 sumShip = getBasePrice() * 1.15;
@@ -45,7 +45,6 @@ public class ElectronicsOrder extends Order {
                 setTotalPrice(sumShip * 0.95);
             }
         }
-        return (int) getTotalPrice();
     }
 
 }
