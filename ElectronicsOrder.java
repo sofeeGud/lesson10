@@ -29,14 +29,16 @@ public class ElectronicsOrder extends Order {
 
     @Override
     public double calculatePrice() {
+        double sumShip;
+
         if (getCustomerOwned() != null) {
             if (getCustomerOwned().getCity() != null && getCustomerOwned().getCity() != "Киев" || getCustomerOwned().getCity() != "Одесса") {
-                setTotalPrice(getBasePrice() * 1.15);
+               sumShip = getBasePrice() * 1.15;
             } else {
-                setTotalPrice(getBasePrice() * 1.10);
+                sumShip = getBasePrice() * 1.10;
             }
-            if (getTotalPrice() > 1000) {
-                setTotalPrice(getBasePrice() * 0.95);
+            if (sumShip > 1000) {
+                setTotalPrice(sumShip * 0.95);
             }
         }
         return getTotalPrice();
