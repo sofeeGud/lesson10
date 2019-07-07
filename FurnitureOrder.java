@@ -2,7 +2,7 @@ package lesson10.homewort10;
 
 import java.util.Date;
 
-public abstract class FurnitureOrder extends Order {
+public class FurnitureOrder extends Order {
     private String furnitureCode;
 
     public FurnitureOrder(String itemName, Date dateCreated, String shipFromCity, String shipToCity, int basePrice, Customer customerOwned, String furnitureCode) {

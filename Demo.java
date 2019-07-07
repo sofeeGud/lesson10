@@ -2,18 +2,27 @@ package lesson10.homewort10;
 
 import java.util.Date;
 
-public class Demo {
+public class Demo{
+
     public static void main(String[] args) {
         Customer customerOne = new Customer("Vova", "Киев", "Мужской");
         Customer customerTwo = new Customer("Тест", "Львов", "Мужской");
-        Order orderOne = new Order("Test", new Date(), "Sumy", "Kyev", 6954, customerOne);
-        Order orderTwo = new Order("Test", new Date(), "Sumy", "Kyev", 6954, customerTwo);
+        Order orderOneEl = new ElectronicsOrder("Test", new Date(), "Киев", "Львов", 53214, customerOne, 11 );
+        Order orderTwoEl = new ElectronicsOrder("Test", new Date(), "Киев", "Львов", 53214, customerOne, 11 );
+        Order orderOneF = new FurnitureOrder("Test", new Date(), "Киев", "Львов", 53214, customerTwo, "ujghf" );
+        Order orderTwoF = new FurnitureOrder("Test", new Date(), "Киев", "Львов", 53214, customerOne, "ytyfgd" );
 
-        orderOne.validateOrder();
-        orderOne.calculatePrice();
-        orderOne.confirmShipping();
-        orderTwo.validateOrder();
-        orderTwo.calculatePrice();
-        orderTwo.confirmShipping();
+        orderOneEl.validateOrder();
+        orderOneEl.calculatePrice();
+        orderOneEl.confirmShipping();
+        orderTwoEl.validateOrder();
+        orderTwoEl.calculatePrice();
+        orderTwoEl.confirmShipping();
+        orderOneF.validateOrder();
+        orderOneF.calculatePrice();
+        orderOneF.confirmShipping();
+        orderTwoF.validateOrder();
+        orderTwoF.calculatePrice();
+        orderTwoF.confirmShipping();
     }
 }
