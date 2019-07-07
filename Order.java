@@ -25,7 +25,7 @@ public abstract class Order {
      abstract void validateOrder();
 
 
-    abstract double calculatePrice();
+    abstract void calculatePrice();
 
 
     public void confirmShipping() {
