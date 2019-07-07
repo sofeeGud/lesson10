@@ -23,12 +23,11 @@ public class FurnitureOrder extends Order {
     }
 
     @Override
-    public double calculatePrice() {
+    public void calculatePrice() {
         if (getTotalPrice() < 5000) {
             setTotalPrice(getBasePrice() * 1.05);
         } else {
             setTotalPrice(getBasePrice() * 1.02);
         }
-        return getTotalPrice();
     }
 }
