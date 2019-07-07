@@ -12,17 +12,18 @@ public class Demo{
         Order orderOneF = new FurnitureOrder("Test", new Date(), "Киев", "Львов", 53214, customerTwo, "ujghf" );
         Order orderTwoF = new FurnitureOrder("Test", new Date(), "Киев", "Львов", 53214, customerOne, "ytyfgd" );
 
+
+        orderOneEl.calculatePrice();
         orderOneEl.validateOrder();
-        //orderOneEl.calculatePrice();
         orderOneEl.confirmShipping();
+        orderTwoEl.calculatePrice();
         orderTwoEl.validateOrder();
-        //orderTwoEl.calculatePrice();
         orderTwoEl.confirmShipping();
+        orderOneF.calculatePrice();
         orderOneF.validateOrder();
-        //orderOneF.calculatePrice();
         orderOneF.confirmShipping();
+        orderTwoF.calculatePrice();
         orderTwoF.validateOrder();
-        //orderTwoF.calculatePrice();
         orderTwoF.confirmShipping();
     }
 }

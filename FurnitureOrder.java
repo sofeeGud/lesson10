@@ -26,7 +26,7 @@ public class FurnitureOrder extends Order {
     }
 
     @Override
-    protected void calculatePrice() {
+    public void calculatePrice() {
         if (getCustomerOwned() != null) {
             if (getTotalPrice() < 5000) {
                 setTotalPrice(getBasePrice() * 1.05);
