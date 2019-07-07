@@ -37,9 +37,9 @@ public class ElectronicsOrder extends Order {
 
         if (getCustomerOwned() != null) {
             if (getShipFromCity() == "Киев" || getShipFromCity() == "Одесса") {
-                sumShip = getBasePrice() * 1.10;
+                setTotalPrice(getBasePrice() * 1.10);
             } else {
-                sumShip = getBasePrice() * 1.15;
+                setTotalPrice(getBasePrice() * 1.15);
             }
             if (sumShip >= 1000) {
                 setTotalPrice(sumShip * 0.95);
