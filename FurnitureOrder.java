@@ -5,8 +5,8 @@ import java.util.Date;
 public abstract class FurnitureOrder extends Order {
     private String furnitureCode;
 
-    public FurnitureOrder(Date dateConfirmed, Date dateShipped, double totalPrice, String furnitureCode) {
-        super(dateConfirmed, dateShipped, totalPrice);
+    public FurnitureOrder(String itemName, Date dateCreated, String shipFromCity, String shipToCity, int basePrice, Customer customerOwned, String furnitureCode) {
+        super(itemName, dateCreated, shipFromCity, shipToCity, basePrice, customerOwned);
         this.furnitureCode = furnitureCode;
     }
 

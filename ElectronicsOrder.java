@@ -5,11 +5,10 @@ import java.util.Date;
 public abstract class ElectronicsOrder extends Order {
     int guaranteeMonths;
 
-    public ElectronicsOrder(Date dateConfirmed, Date dateShipped, double totalPrice, int guaranteeMonths) {
-        super(dateConfirmed, dateShipped, totalPrice);
+    public ElectronicsOrder(String itemName, Date dateCreated, String shipFromCity, String shipToCity, int basePrice, Customer customerOwned, int guaranteeMonths) {
+        super(itemName, dateCreated, shipFromCity, shipToCity, basePrice, customerOwned);
         this.guaranteeMonths = guaranteeMonths;
     }
-
 
     @Override
     public void validateOrder() {

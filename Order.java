@@ -2,7 +2,7 @@ package lesson10.homewort10;
 
 import java.util.Date;
 
-public abstract class Order {
+public  class Order {
     private String itemName;
     private Date dateCreated;
     private Date dateConfirmed;
@@ -13,16 +13,19 @@ public abstract class Order {
     private double totalPrice;
     private Customer customerOwned;
 
-    public Order(Date dateConfirmed, Date dateShipped, double totalPrice) {
-        this.dateConfirmed = dateConfirmed;
-        this.dateShipped = dateShipped;
-        this.totalPrice = totalPrice;
+    public Order(String itemName, Date dateCreated, String shipFromCity, String shipToCity, int basePrice, Customer customerOwned) {
+        this.itemName = itemName;
+        this.dateCreated = dateCreated;
+        this.shipFromCity = shipFromCity;
+        this.shipToCity = shipToCity;
+        this.basePrice = basePrice;
+        this.customerOwned = customerOwned;
     }
 
-    abstract void validateOrder();
+     void validateOrder(){}
 
 
-    abstract void calculatePrice();
+    void calculatePrice(){}
 
 
     public void confirmShipping() {

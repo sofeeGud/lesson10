@@ -4,8 +4,8 @@ import java.util.Date;
 
 public class Demo {
     public static void main(String[] args) {
-        Order orderOne = new Order(new Date(), new Date(), 1233.5);
-        Order orderTwo = new Order(new Date(), new Date(), 55555.98);
+        Order orderOne = new Order("Test", new Date(), "Sumy", "Kyev", 6954, Customer);
+        Order orderTwo = new Order("Test", new Date(), "Sumy", "Kyev", 6954, Customer);
 
         orderOne.validateOrder();
         orderOne.calculatePrice();
