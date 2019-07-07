@@ -3,7 +3,7 @@ package lesson10.homewort10;
 import java.util.Date;
 
 public class ElectronicsOrder extends Order {
-    int guaranteeMonths;
+    private int guaranteeMonths;
 
     public ElectronicsOrder(String itemName, Date dateCreated, String shipFromCity, String shipToCity, int basePrice, Customer customerOwned, int guaranteeMonths) {
         super(itemName, dateCreated, shipFromCity, shipToCity, basePrice, customerOwned);
@@ -26,9 +26,9 @@ public class ElectronicsOrder extends Order {
     }
 
     @Override
-    public void calculatePrice() {
+    public double calculatePrice() {
         if (getCustomerOwned() != null) {
-            if (getShipToCity() != "Киев" || getShipToCity() != "Одесса") {
+            if (getCustomerOwned().getCity() != "Киев" || getCustomerOwned().getCity() != "Одесса") {
                 setTotalPrice(getBasePrice() * 1.15);
             } else {
                 setTotalPrice(getBasePrice() * 1.10);
@@ -37,6 +37,7 @@ public class ElectronicsOrder extends Order {
                 setTotalPrice(getBasePrice() * 0.95);
             }
         }
+        return getTotalPrice();
     }
 
 }
