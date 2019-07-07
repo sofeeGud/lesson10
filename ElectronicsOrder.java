@@ -32,7 +32,7 @@ public class ElectronicsOrder extends Order {
     }
 
     @Override
-    public double calculatePrice() {
+    public int calculatePrice() {
         double sumShip = getTotalPrice();
 
         if (getCustomerOwned() != null) {
@@ -45,7 +45,7 @@ public class ElectronicsOrder extends Order {
                 setTotalPrice(sumShip * 0.95);
             }
         }
-        return getTotalPrice();
+        return (int) getTotalPrice();
     }
 
 }
