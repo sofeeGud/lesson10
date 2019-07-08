@@ -12,16 +12,13 @@ public class ElectronicsOrder extends Order {
 
     @Override
     public void validateOrder() {
-        calculatePrice();
-        if (getCustomerOwned() != null) {
+        if (getCustomerOwned() != null && getTotalPrice() != 0) {
             if (getShipToCity() == "Киев" || getShipToCity() == "Одесса" || getShipToCity() == "Днепр" || getShipToCity() == "Харьков") {
                 if (getShipFromCity() == "Киев" || getShipFromCity() == "Одесса" || getShipFromCity() == "Днепр" || getShipFromCity() == "Харьков") {
                     if (getShipFromCity() != getShipToCity()) {
                         if (getTotalPrice() >= 100) {
-                            if (getCustomerOwned() != null) {
-                                if (getCustomerOwned().getGender() == "Женский") {
-                                    setDateConfirmed(new Date());
-                                }
+                            if (getCustomerOwned().getGender() == "Женский") {
+                                setDateConfirmed(new Date());
                             }
                         }
                     }
@@ -32,10 +29,11 @@ public class ElectronicsOrder extends Order {
 
     }
 
-     private void calculatePrice() {
+    @Override
+    void calculatePrice() {
         double sumShip;
 
-        if (getCustomerOwned() != null && getBasePrice()!=0 && getShipFromCity()!=null) {
+        if (getCustomerOwned() != null && getBasePrice() != 0) {
             if (getShipFromCity() == "Киев" || getShipFromCity() == "Одесса") {
                 sumShip = getBasePrice() * 1.10;
             } else {
