@@ -11,31 +11,30 @@ public class ElectronicsOrder extends Order {
     }
 
 
-        @Override
+    @Override
     public void validateOrder() {
 
         if (getCustomerOwned() != null && getCustomerOwned().getGender() == "Женский" && getBasePrice() >= 100) {
             if (getShipFromCity() == "Киев" || getShipFromCity() == "Одесса" || getShipFromCity() == "Днепр" || getShipFromCity() == "Харьков") {
-                    if (getShipToCity() == "Киев" || getShipToCity() == "Одесса" || getShipToCity() == "Днепр" || getShipToCity() == "Харьков") {
+                if (getShipToCity() == "Киев" || getShipToCity() == "Одесса" || getShipToCity() == "Днепр" || getShipToCity() == "Харьков") {
 
 
-                                setDateConfirmed(new Date());
+                    setDateConfirmed(new Date());
 
 
-                    }
                 }
             }
-
         }
 
+    }
 
 
     @Override
     public void calculatePrice() {
-        //if (getCustomerOwned() != null && getBasePrice() != 0) {
-           // if (getShipToCity() != null && getShipFromCity() != null) {
+        if (getCustomerOwned() != null && getBasePrice() != 0) {
+            if (getShipToCity() != null && getShipFromCity() != null) {
                 double sumShip = getBasePrice();
-                double ship = 0;
+                double ship;
 
                 if (getShipToCity() == "Киев" || getShipToCity() == "Одесса") {
                     ship = sumShip * 0.1;
@@ -47,13 +46,13 @@ public class ElectronicsOrder extends Order {
                     sumShip *= 0.95;
                 }
 
-                sumShip += ship;
-                
+                sumShip = sumShip + ship;
+
                 setTotalPrice(sumShip);
             }
         }
 
-   // }
+    }
 
 
-//}
+}
