@@ -28,7 +28,7 @@ public class ElectronicsOrder extends Order {
 //        }
 
         @Override
-    void validateOrder() {
+    public void validateOrder() {
 
         if (getCustomerOwned() != null && getCustomerOwned().getGender() == "Женский" && getBasePrice() >= 100) {
             if (getShipFromCity() == "Киев" || getShipFromCity() == "Одесса" || getShipFromCity() == "Днепр" || getShipFromCity() == "Харьков") {
