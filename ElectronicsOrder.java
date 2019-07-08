@@ -33,7 +33,7 @@ public class ElectronicsOrder extends Order {
     public void calculatePrice() {
         if (getCustomerOwned() != null && getBasePrice() != 0) {
             if (getShipToCity() != null && getShipFromCity() != null) {
-                double sumShip = getBasePrice();
+                double sumShip = getTotalPrice();
                 double ship;
 
                 if (getShipToCity() == "Киев" || getShipToCity() == "Одесса") {
