@@ -14,7 +14,7 @@ public class ElectronicsOrder extends Order {
     void validateOrder() {
         if (getCustomerOwned() != null) {
             if (getShipFromCity() == "Киев" || getShipFromCity() == "Одесса" || getShipFromCity() == "Днепр" || getShipFromCity() == "Харьков") {
-                if (getShipToCity() == "Киев" || getShipToCity() == "Одесса" || getShipToCity() == "Днепр" || getShipToCity() == "Харьков") {
+                if (getCustomerOwned().getCity() == "Киев" || getCustomerOwned().getCity() == "Одесса" || getCustomerOwned().getCity() == "Днепр" || getCustomerOwned().getCity() == "Харьков") {
                     if (getTotalPrice() >= 100) {
                         //if (getCustomerOwned().getName() != null) {
                             if (getCustomerOwned().getGender() == "Женский") {
