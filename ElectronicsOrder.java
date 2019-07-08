@@ -31,30 +31,25 @@ public class ElectronicsOrder extends Order {
 
     @Override
     public void calculatePrice() {
-        if(getDateConfirmed()!= null){
-        //if (getCustomerOwned() != null && getBasePrice() != 0) {
-          //  if (getShipToCity() != null && getShipFromCity() != null) {
-                double sumShip = getBasePrice();
-                double ship;
 
-                if (getShipToCity() == "Киев" || getShipToCity() == "Одесса") {
-                    ship = sumShip * 0.1;
-                } else {
-                    ship = sumShip * 0.15;
-                }
+        if (getCustomerOwned() != null && getBasePrice() != 0) {
+            double sumShip = getBasePrice();
+            double ship;
 
-                if (getBasePrice() >= 1000) {
-                    sumShip *= 0.95;
-                }
-
-                sumShip = sumShip + ship;
-
-                setTotalPrice(sumShip);
+            if (getShipToCity() == "Киев" || getShipToCity() == "Одесса") {
+                ship = sumShip * 0.1;
+            } else {
+                ship = sumShip * 0.15;
             }
+
+            if (getBasePrice() >= 1000) {
+                sumShip *= 0.95;
             }
+
+            sumShip = sumShip + ship;
+
+            setTotalPrice(sumShip);
         }
+    }
+}
 
-   // }
-
-
-//}
