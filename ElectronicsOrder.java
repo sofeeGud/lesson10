@@ -64,13 +64,15 @@ public class ElectronicsOrder extends Order {
     @Override
     public void calculatePrice() {
         double sumShip = getBasePrice();
-        if (getShipToCity() == "Киев" || getShipToCity() == "Одесса") {
-            sumShip *= 1.10;
-        } else {
-            sumShip *= 1.15;
+        if (getShipToCity() != getShipFromCity()) {
+            if (getShipToCity() == "Киев" || getShipToCity() == "Одесса") {
+                sumShip *= 1.10;
+            } else {
+                sumShip *= 1.15;
+            }
         }
 
-        if (sumShip >= 1000) {
+        if (sumShip > 1000) {
             sumShip *= 0.95;
         }
 
