@@ -67,7 +67,7 @@ public class ElectronicsOrder extends Order {
         if (getShipToCity() == "Киев" || getShipToCity() == "Одесса") {
             sumShip *= 1.10;
         } else {
-            sumShip *= 0.85;
+            sumShip *= 1.15;
         }
 
         if (sumShip >= 1000) {
