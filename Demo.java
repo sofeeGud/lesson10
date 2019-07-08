@@ -13,17 +13,17 @@ public class Demo{
         Order orderTwoF = new FurnitureOrder("caleb", new Date(), "Киев", "Львов", 10002, customerOne, "ytyfgd" );
 
 
-        orderOneEl.calculatePrice();
         orderOneEl.validateOrder();
+        orderOneEl.calculatePrice();
         orderOneEl.confirmShipping();
-        orderTwoEl.calculatePrice();
         orderTwoEl.validateOrder();
+        orderTwoEl.calculatePrice();
         orderTwoEl.confirmShipping();
-       orderOneF.calculatePrice();
         orderOneF.validateOrder();
+        orderOneF.calculatePrice();
         orderOneF.confirmShipping();
-        orderTwoF.calculatePrice();
         orderTwoF.validateOrder();
+        orderTwoF.calculatePrice();
         orderTwoF.confirmShipping();
     }
 }
