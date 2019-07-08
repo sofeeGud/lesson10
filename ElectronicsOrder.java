@@ -42,7 +42,7 @@ public class ElectronicsOrder extends Order {
                     ship = sumShip * 0.15;
                 }
 
-                if (getBasePrice() > 1000) {
+                if (getBasePrice() >= 1000) {
                     sumShip *= 0.95;
                 }
 
