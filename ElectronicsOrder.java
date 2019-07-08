@@ -10,13 +10,30 @@ public class ElectronicsOrder extends Order {
         this.guaranteeMonths = guaranteeMonths;
     }
 
-    @Override
+//    @Override
+//    void validateOrder() {
+//
+//        if (getCustomerOwned() != null) {
+//            if (getShipFromCity() == "Киев" || getShipFromCity() == "Одесса" || getShipFromCity() == "Днепр" || getShipFromCity() == "Харьков") {
+//                    if (getShipToCity() == "Киев" || getShipToCity() == "Одесса" || getShipToCity() == "Днепр" || getShipToCity() == "Харьков") {
+//                        if (getTotalPrice() <= 100) {
+//                            if (getCustomerOwned().getGender() == "Женский") {
+//                                setDateConfirmed(new Date());
+//                            }
+//                        }
+//                    }
+//                }
+//            }
+//
+//        }
+
+        @Override
     void validateOrder() {
 
-        if (getTotalPrice() >=100){
+        if (getCustomerOwned() != null) {
             if (getShipFromCity() == "Киев" || getShipFromCity() == "Одесса" || getShipFromCity() == "Днепр" || getShipFromCity() == "Харьков") {
                     if (getShipToCity() == "Киев" || getShipToCity() == "Одесса" || getShipToCity() == "Днепр" || getShipToCity() == "Харьков") {
-                        //if (getTotalPrice() <= 100) {
+                        if (getTotalPrice() <= 100) {
                             if (getCustomerOwned().getGender() == "Женский") {
                                 setDateConfirmed(new Date());
                             }
@@ -25,23 +42,43 @@ public class ElectronicsOrder extends Order {
                 }
             }
 
-       // }
+        }
 
+
+//    @Override
+//    public void calculatePrice() {
+//        double sumShip;
+//        if (getCustomerOwned() != null) {
+//            if (getShipFromCity() == "Киев" || getShipFromCity() == "Одесса") {
+//                sumShip = getBasePrice() * 1.10;
+//            } else {
+//                sumShip = getBasePrice() * 1.15;
+//            }
+//            if (sumShip >= 1000) {
+//                setTotalPrice(sumShip * 0.95);
+//            } else
+//                setTotalPrice(sumShip);
+//        }
+//    }
 
     @Override
     public void calculatePrice() {
-        double sumShip;
-        if (getCustomerOwned() != null) {
-            if (getShipFromCity() == "Киев" || getShipFromCity() == "Одесса") {
+        double sumShip = 0;
+            if (getShipToCity() == "Киев" || getShipToCity() == "Одесса"  ) {
                 sumShip = getBasePrice() * 1.10;
-            } else {
+            } else if (getShipToCity() == "Днепр" || getShipToCity() == "Харьков") {
                 sumShip = getBasePrice() * 1.15;
             }
-            if (sumShip >= 1000) {
-                setTotalPrice(sumShip * 0.95);
-            } else
+
+            if (sumShip != 0) {
+                if (sumShip >= 1000) {
+                    sumShip *= 0.95;
+                }
+
                 setTotalPrice(sumShip);
-        }
+            }
+
+
     }
 
 
