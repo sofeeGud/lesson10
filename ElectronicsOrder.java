@@ -18,7 +18,7 @@ public class ElectronicsOrder extends Order {
                     if (getTotalPrice()!=0 && getTotalPrice() <= 100) {
                         if (getCustomerOwned().getName() != null) {
                             if (getCustomerOwned().getGender() == "Женский") {
-                                setDateConfirmed(new Date());
+                                setDateConfirmed(getDateCreated());
                             }
                         }
                     }
