@@ -81,7 +81,6 @@ public class ElectronicsOrder extends Order {
             }
         }
 
-        setTotalPrice((double) 0);
     }
 
 
