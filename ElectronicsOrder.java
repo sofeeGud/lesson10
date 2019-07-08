@@ -10,22 +10,6 @@ public class ElectronicsOrder extends Order {
         this.guaranteeMonths = guaranteeMonths;
     }
 
-//    @Override
-//    void validateOrder() {
-//
-//        if (getCustomerOwned() != null) {
-//            if (getShipFromCity() == "Киев" || getShipFromCity() == "Одесса" || getShipFromCity() == "Днепр" || getShipFromCity() == "Харьков") {
-//                    if (getShipToCity() == "Киев" || getShipToCity() == "Одесса" || getShipToCity() == "Днепр" || getShipToCity() == "Харьков") {
-//                        if (getTotalPrice() <= 100) {
-//                            if (getCustomerOwned().getGender() == "Женский") {
-//                                setDateConfirmed(new Date());
-//                            }
-//                        }
-//                    }
-//                }
-//            }
-//
-//        }
 
         @Override
     public void validateOrder() {
@@ -45,27 +29,12 @@ public class ElectronicsOrder extends Order {
         }
 
 
-//    @Override
-//    public void calculatePrice() {
-//        double sumShip;
-//        if (getCustomerOwned() != null) {
-//            if (getShipFromCity() == "Киев" || getShipFromCity() == "Одесса") {
-//                sumShip = getBasePrice() * 1.10;
-//            } else {
-//                sumShip = getBasePrice() * 1.15;
-//            }
-//            if (sumShip >= 1000) {
-//                setTotalPrice(sumShip * 0.95);
-//            } else
-//                setTotalPrice(sumShip);
-//        }
-//    }
 
     @Override
     public void calculatePrice() {
-        if (getCustomerOwned() != null && getBasePrice() != 0) {
-            if (getShipToCity() != null && getShipFromCity() != null) {
-                double sumShip = getBasePrice();
+        //if (getCustomerOwned() != null && getBasePrice() != 0) {
+           // if (getShipToCity() != null && getShipFromCity() != null) {
+                double sumShip = getTotalPrice();
 
                 if (getShipToCity() == "Киев" || getShipToCity() == "Одесса") {
                     sumShip *= 1.10;
@@ -81,7 +50,7 @@ public class ElectronicsOrder extends Order {
             }
         }
 
-    }
+   // }
 
 
-}
+//}
