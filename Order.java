@@ -22,10 +22,9 @@ public abstract class Order {
         this.customerOwned = customerOwned;
     }
 
-    abstract void validateOrder();
+    public abstract void validateOrder();
 
-
-     private void calculatePrice(){};
+    void calculatePrice(){};
 
 
     public void confirmShipping() {
@@ -80,4 +79,5 @@ public abstract class Order {
     public void setTotalPrice(double totalPrice) {
         this.totalPrice = totalPrice;
     }
+
 }
