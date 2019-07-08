@@ -12,22 +12,25 @@ public class ElectronicsOrder extends Order {
 
     @Override
     void validateOrder() {
+
         if (getCustomerOwned() != null) {
             if (getShipFromCity() == "Киев" || getShipFromCity() == "Одесса" || getShipFromCity() == "Днепр" || getShipFromCity() == "Харьков") {
-                if (getCustomerOwned().getCity() == "Киев" || getCustomerOwned().getCity() == "Одесса" || getCustomerOwned().getCity() == "Днепр" || getCustomerOwned().getCity() == "Харьков") {
-                    if (getTotalPrice() >= 100) {
-                        //if (getCustomerOwned().getName() != null) {
+                if (getCustomerOwned().getCity() == getShipToCity()) {
+                    if (getShipToCity() == "Киев" || getShipToCity() == "Одесса" || getShipToCity() == "Днепр" || getShipToCity() == "Харьков") {
+                        if (getTotalPrice() >= 100) {
+                            //if (getCustomerOwned().getName() != null) {
                             if (getCustomerOwned().getGender() == "Женский") {
                                 setDateConfirmed(new Date());
                             }
                         }
                     }
                 }
-
             }
-      }
 
-   // }
+        }
+    }
+
+    // }
 
     @Override
     void calculatePrice() {
