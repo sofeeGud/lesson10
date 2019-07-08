@@ -32,7 +32,7 @@ public class ElectronicsOrder extends Order {
     }
 
     @Override
-    public void calculatePrice() {
+    protected void calculatePrice() {
         double sumShip;
 
         if (getCustomerOwned() != null && getBasePrice()!=0 && getShipFromCity()!=null) {
