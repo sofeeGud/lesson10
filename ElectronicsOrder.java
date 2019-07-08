@@ -12,6 +12,7 @@ public class ElectronicsOrder extends Order {
 
     @Override
     public void validateOrder() {
+        calculatePrice();
         if (getCustomerOwned() != null) {
             if (getShipToCity() == "Киев" || getShipToCity() == "Одесса" || getShipToCity() == "Днепр" || getShipToCity() == "Харьков") {
                 if (getShipFromCity() == "Киев" || getShipFromCity() == "Одесса" || getShipFromCity() == "Днепр" || getShipFromCity() == "Харьков") {
@@ -31,8 +32,7 @@ public class ElectronicsOrder extends Order {
 
     }
 
-    @Override
-     void calculatePrice() {
+     private void calculatePrice() {
         double sumShip;
 
         if (getCustomerOwned() != null && getBasePrice()!=0 && getShipFromCity()!=null) {
