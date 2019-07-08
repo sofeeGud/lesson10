@@ -17,7 +17,7 @@ public class ElectronicsOrder extends Order {
                 if (getShipToCity() == "Киев" || getShipToCity() == "Одесса" || getShipToCity() == "Днепр" || getShipToCity() == "Харьков") {
                     if (getTotalPrice() <= 100) {
                         if (getCustomerOwned().getName() != null) {
-                            if (getCustomerOwned().getGender() == "Женский" && getCustomerOwned().getGender()!= "Мужской" && getCustomerOwned().getGender()!=null ) {
+                            if (getCustomerOwned().getGender() == "Женский") {
                                 setDateConfirmed(getDateCreated());
                             }
                         }
@@ -32,8 +32,7 @@ public class ElectronicsOrder extends Order {
     @Override
     void calculatePrice() {
         double sumShip;
-
-        if (getCustomerOwned() != null && getBasePrice() != 0) {
+        if (getCustomerOwned() != null) {
             if (getShipFromCity() == "Киев" || getShipFromCity() == "Одесса") {
                 sumShip = getBasePrice() * 1.10;
             } else {
