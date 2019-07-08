@@ -32,8 +32,8 @@ public class ElectronicsOrder extends Order {
     @Override
     public void calculatePrice() {
         if(getDateConfirmed()!= null){
-        if (getCustomerOwned() != null && getBasePrice() != 0) {
-            if (getShipToCity() != null && getShipFromCity() != null) {
+        //if (getCustomerOwned() != null && getBasePrice() != 0) {
+          //  if (getShipToCity() != null && getShipFromCity() != null) {
                 double sumShip = getBasePrice();
                 double ship;
 
@@ -54,7 +54,7 @@ public class ElectronicsOrder extends Order {
             }
         }
 
-    }
+   // }
 
 
-}
+//}
