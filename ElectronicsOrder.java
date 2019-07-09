@@ -31,25 +31,11 @@ public class ElectronicsOrder extends Order {
 
     @Override
     public void calculatePrice() {
-
-        if (getCustomerOwned() != null && getBasePrice() != 0) {
-            double sumShip = getBasePrice();
-            double ship;
-
-            if (getShipToCity() == "Киев" || getShipToCity() == "Одесса") {
-                ship = sumShip * 0.1;
-            } else {
-                ship = sumShip * 0.15;
-            }
-
-            if (getBasePrice() >= 1000) {
-                sumShip *= 0.95;
-            }
-
-            sumShip = sumShip + ship;
-
-            setTotalPrice(sumShip);
+    double sumShip = getShipToCity()!=null && (getShipToCity() == "Киев" || getShipToCity() == "Одесса") ? 
+        getBasePrice() * 0.10 : getBasePrice() * 0.15;
+            double bonus = getBasePrice() > 1000 ? (getBasePrice() + sumShip) * 0.05 : 0;
+            setTotalPrice(getBasePrice() + sumShip - bonus);
         }
-    }
+    
 }
 
